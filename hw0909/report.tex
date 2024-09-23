@@ -19,7 +19,7 @@
 
 
 
-\title{NPDE~第0次实验报告}
+\title{NPDE~第1次实验报告}
 \author{Author}
 \date{\today}
 
@@ -29,34 +29,45 @@
 
 \section{Introduction}
 
-实验目的，实验的具体要求。
+$$v(x)=\frac{1}{2}(\pi-x),v_N(x)=\sum_{\omega =1}^{N}\frac{sin(\omega x)}{\omega},x \in \Omega=(0,2\pi]$$
+
+将$\Omega$进行均匀剖分，$x_j=jh,j=1,2,\cdots,m,h=\frac{2\pi}{m},m=20,160$,对$v(x)$和$v_N(x)$绘制函数图像，
+
+将$v_N(x)$修正为$$\widetilde{v}_N(x)=\sum_{\omega =1}^{N}\frac{sin(\frac{\omega \pi}{N})sin(\omega x)}{\frac{\omega \pi}{N}\omega} $$
+
+重复上述操作
 
 \section{Method}
 
-使用了什么数值方法进行求解，需要有具体的数学公式。如果有多个小问，分成几个小节。
+$v(x)=\frac{1}{2}(\pi-x),v(x)=v(x+2\pi)$的Fourier级数的前N项为$v_N(x)=\sum_{\omega =1}^{N}\frac{sin(\omega x)}{\omega}$
 
 
 \section{Results}
 
-得到的数值结果以及对结果的说明。（不要贴那种带MATLAB窗口按钮的截图）
-
-
-\begin{table}[ht]
+\begin{figure}[H]
     \centering
-    \caption{误差和阶数表}\label{tab:demo0}
-    \begin{tabular}{c|ccccc}
-        \hline
-                           & 10       & 20        & 40        & 80         & 160        \\
-        \hline
-        $L^{\infty}$~error & 0.283284 & 0.0758226 & 0.0192964 & 0.00484029 & 0.00121093 \\
-        order              & -        & 1.90      & 1.97      & 2.00       & 2.00       \\
-        \hline
-    \end{tabular}
-\end{table}
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[width=\textwidth]{m=20,n=10.png}
+        \caption{m=20,n=10}        
+    \end{subfigure}
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[width=\textwidth]{m=20,n=100.png}
+        \caption{m=20,n=100}
+    \end{subfigure}
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[width=\textwidth]{m=160,n=10.png}
+        \caption{m=160,n=10}
+    \end{subfigure}
+    \begin{subfigure}{0.35\textwidth}
+        \includegraphics[width=\textwidth]{m=160,n=100.png}
+        \caption{m=160,n=100}
+    \end{subfigure}
+    \caption{$v(x),v_N(x),\widetilde{v}_N(x)$的函数图像与误差}
+\end{figure}
+
 
 
 \section{Conclusion}
 
-总结和思考。
-
+随着N的增大，$v_N(x)$趋近于$v(x)$，在$x=0$处出现Gibbs现象，修正后的函数$\widetilde{v}_N(x)$通过使Fourier系数随着$\omega$逐步减小，在$x=0$处振荡减弱
 \end{document}
