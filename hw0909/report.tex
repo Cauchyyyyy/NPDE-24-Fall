@@ -3,7 +3,7 @@
 \usepackage[UTF8,scheme=plain]{ctex}
 \usepackage[a4paper,left=1.25in,right=1.25in,top=1in,bottom=1in]{geometry}
 
-\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,listings}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{subcaption}
@@ -70,4 +70,14 @@ $v(x)=\frac{1}{2}(\pi-x),v(x)=v(x+2\pi)$的Fourier级数的前N项为$v_N(x)=\su
 \section{Conclusion}
 
 随着N的增大，$v_N(x)$趋近于$v(x)$，在$x=0$处出现Gibbs现象，修正后的函数$\widetilde{v}_N(x)$通过使Fourier系数随着$\omega$逐步减小，在$x=0$处振荡减弱
+
+
+\section{Appendix}
+\subsection{Program Discription}
+本次作业使用matlab编写，打开pg1.m文件，运行即可得到结果，实现相关功能所需函数在resultshow.m文件中
+
+
+\subsection{Code}
+\lstinputlisting[language=Matlab]{pg1.m}
+\lstinputlisting[language=Matlab]{resultshow.m}
 \end{document}
