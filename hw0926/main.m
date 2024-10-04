@@ -12,5 +12,10 @@ dt2=h*1.5;
 
 
 T=1;
+tiledlayout('flow');
+nexttile;
 plot(x,u(x,T),x,v1(:,cast(1/dt1+1,'int64')),'-o');
 legend('u(x,T)','r=0.5');
+nexttile;
+plot(x,u(x,T),x,v2(:,cast(1/dt2+1,'int64')),'-o');
+legend('u(x,T)','r=1.5');

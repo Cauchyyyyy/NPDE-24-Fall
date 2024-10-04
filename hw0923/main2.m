@@ -15,4 +15,4 @@ for j=1:length(J)
 end
 plot(x,exact,'r');
 hold off;
-    
+legend('J=10','J=20','J=40','J=80','J=160','exact');
