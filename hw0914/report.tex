@@ -90,15 +90,21 @@ $$v_j^{n+1}=v_j^n+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j}^n)$$
     \caption{$\Delta t=0.03$}
 \end{figure}
 \section{Conclusion}
+根据理论分析，FTCS和FTFS的误差分别为$O(\Delta t+\Delta x^2),O(\Delta t+\Delta x)$，求得的数值解与准确解有一定误差。
 
-总结和思考。
+对于FTCS，$\hat{Q}=1+irsin(\xi),\xi=\omega \Delta x\Rightarrow |\hat{Q}|\geq 1$
+
+对于FTFS，$\hat{Q}=1+r(e^{i\omega \Delta x}-1)$
+$$|\hat{Q}|\leq 1\Leftrightarrow cos(\xi)(1-r)\leq 1$$
+
+数值解都不是绝对稳定的
 
 \section{Appendix}
 \subsection{Code Discription}
 
 本次作业使用matlab编写，打开pg2.m文件，运行即可得到结果，实现相关功能所需函数在resultshow.m文件中
 
-特别地，由于$\Delta t=0.03$时无法对$[0,1]$进行均分，所以采用的区间为$[0,3]$，以保证resultshow函数的通用性
+特别地，由于$\Delta t=0.03$时无法对$[0,1]$进行均分，所以采用的区间为$[0,0.3]$，以保证resultshow函数的通用性
 
 \subsection{Code}
 \lstinputlisting[language=Matlab]{pg2.m}

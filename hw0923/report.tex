@@ -50,8 +50,13 @@ $$
 2、取r=0.5,t=1.0，分别取J=10,20,40,80,160，用Lax-Wendroff计算数值解
 \section{Method}
 
-使用了什么数值方法进行求解，需要有具体的数学公式。如果有多个小问，分成几个小节。
+记近似解$v_j^n=u(x_j,t_n)$，近似方法与对应的离散方程如下：
 
+FTCS:$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
+
+Lax-Friedrich:$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)+\frac{1}{2}(v_{j+1}^n+v_{j-1}^n-2v_j^n)$$
+
+Lax-Wendroff:$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)+\frac{1}{2}(\frac{\Delta t}{\Delta x})^2(v_{j+1}^n+v_{j-1}^n-2v_j^n)$$
 
 \section{Results}
 
@@ -64,7 +69,7 @@ $$
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\textwidth]{demo2.png}
-    \caption{不同网格精度的比较}\label{fig:demo2}
+    \caption{不同网格精度的比较(Lax-Wendroff)}\label{fig:demo2}
 \end{figure}
 
 \section{Conclusion}
@@ -73,7 +78,7 @@ $$
 
 \section{Appendix}
 \subsection{Code Discription}
-
+本次作业使用matlab编写，问题1、2分别在main1.m、main2.m文件，运行即可得到结果，实现相关功能所需函数在ndsolve.m文件中
 \subsection{Code}
 \subsubsection{main1.m}
 \lstinputlisting[language=Matlab]{main1.m}

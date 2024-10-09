@@ -47,7 +47,15 @@ $$
 1、取T=1.0,J=80,分别取r=0.5,1.5，用CTCS格式求数值解
 \section{Method}
 
-使用了什么数值方法进行求解，需要有具体的数学公式。如果有多个小问，分成几个小节。
+记近似解$v_j^n=u(x_j,t_n)$，近似方法分别为CTCS，得到离散方程如下：
+
+第一步采用FTCS格式
+$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
+
+之后采用CTCS格式
+$$v_j^{n+1}=v_j^{n-1}+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
+
+定解条件：初始条件：$v_j^0=sin(2\pi j\Delta x)$，边界条件：$v_j^n=v_{j+J}^n$
 
 
 \section{Results}
@@ -70,7 +78,7 @@ $$
 
 \section{Appendix}
 \subsection{Code Discription}
-
+本次作业使用matlab编写，打开main.m文件，运行即可得到结果，实现相关功能所需函数在ndsolve.m文件中
 \subsection{Code}
 \lstinputlisting[language=Matlab]{main.m}
 \lstinputlisting[language=Matlab]{ndsolve.m}

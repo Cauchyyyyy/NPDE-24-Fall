@@ -1,7 +1,7 @@
 function [A, y] = resultshow(dt, dx, bool)
 % bool=1, forward
 % bool=0, center
-N=3/dt;
+N=0.3/dt+1;
 J=1/dx;
 A=zeros(J,N);
 j=1:J;
