@@ -95,7 +95,7 @@ $$v_j^{n+1}=v_j^n+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j}^n)$$
 对于FTCS，$\hat{Q}=1+irsin(\xi),\xi=\omega \Delta x\Rightarrow |\hat{Q}|\geq 1$
 
 对于FTFS，$\hat{Q}=1+r(e^{i\omega \Delta x}-1)$
-$$|\hat{Q}|\leq 1\Leftrightarrow cos(\xi)(1-r)\leq 1$$
+$$|\hat{Q}|\leq 1\Leftrightarrow (cos\xi-1)(1-r)\leq 0\leftrightarrow r\leq 1$$
 
 数值解都不是绝对稳定的
 
