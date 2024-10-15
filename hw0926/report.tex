@@ -49,8 +49,8 @@ $$
 
 记近似解$v_j^n=u(x_j,t_n)$，近似方法分别为CTCS，得到离散方程如下：
 
-第一步采用FTCS格式
-$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
+第一步采用FTFS格式
+$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j}^n)$$
 
 之后采用CTCS格式
 $$v_j^{n+1}=v_j^{n-1}+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
@@ -74,7 +74,9 @@ $$v_j^{n+1}=v_j^{n-1}+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j-1}^n)$$
 
 \section{Conclusion}
 
-总结和思考。
+理论分析得，数值解的稳定性条件为$$r\leq 1-\delta ,1>\delta > 0$$
+
+当$r =0.5$时，数值解与准确解误差较小，当$r =1.5$时，数值解不稳定，结果与理论相符。
 
 \section{Appendix}
 \subsection{Code Discription}

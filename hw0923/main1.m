@@ -8,8 +8,9 @@ x=0:1/J:1;x=x';
 v1=ndsolve(r,J,1);
 v2=ndsolve(r,J,2);
 v3=ndsolve(r,J,3);
+T=[0,0.1,0.4,0.8,1];
+%T=[0,0.05,0.1,0.2,0.4,0.8,1,1.25,1.6,2,2.0125,2.0375];
 
-T=[0,0.05,0.1,0.2,0.4,0.8,1];
 errors=zeros(3,length(T));
 for i=1:length(T)
     errors(1,i)=max(abs(v1(:,T(i)/dt+1)-u(x,T(i))));

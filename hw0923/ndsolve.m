@@ -2,11 +2,11 @@ function v=ndsolve(r,J,method)
 h=1/J;
 x=0:h:1;
 dt=r*h;
-v=zeros(J+1,1/dt+1);
+v=zeros(J+1,3/dt+1);
 v(:,1)=sin(2*pi*x);
 
 if method==1 % FTCS
-    for n=1:1/dt
+    for n=1:3/dt
         for j=2:J
             v(j,n+1)=v(j,n)+r/2*(v(j+1,n)-v(j-1,n));
         end
@@ -14,7 +14,7 @@ if method==1 % FTCS
         v(J+1,n+1)=v(1,n+1);
     end
 elseif method==2 % Lax-Wendroff
-    for n=1:1/dt
+    for n=1:3/dt
         for j=2:J
             v(j,n+1)=v(j,n)+r/2*(v(j+1,n)-v(j-1,n))+r^2/2*(v(j+1,n)-2*v(j,n)+v(j-1,n));
         end
@@ -22,7 +22,7 @@ elseif method==2 % Lax-Wendroff
         v(J+1,n+1)=v(1,n+1);
     end
 elseif method==3 % Lax-Friedrichs
-    for n=1:1/dt
+    for n=1:3/dt
         for j=2:J
             v(j,n+1)=v(j,n)+r/2*(v(j+1,n)-v(j-1,n))+1/2*(v(j+1,n)-2*v(j,n)+v(j-1,n));
         end

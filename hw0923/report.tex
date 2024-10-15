@@ -62,7 +62,12 @@ Lax-Wendroff:$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)+\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.8\textwidth]{demo1.png}
+    \begin{subfigure}{.4\textwidth}
+        \includegraphics[width=1\textwidth]{demo1.png}    
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \includegraphics[width=1\textwidth]{demo3.png}        
+    \end{subfigure}
     \caption{最大误差随时间变化图}\label{fig:demo1}
 \end{figure}
 
@@ -74,8 +79,13 @@ Lax-Wendroff:$$v_j^{n+1}=v_j^n+\frac{\Delta t}{2\Delta x}(v_{j+1}^n-v_{j-1}^n)+\
 
 \section{Conclusion}
 
-总结和思考。
+\subsection{问题1}
+在给定的时间范围内，最大误差随时间逐渐增加，其中Lax-Wendroff格式的误差最小，其次是FTCS格式、Lax-Friedrich格式。
+由理论分析知，三种格式的截断误差分别为$\mathcal{O} (\Delta t+h^2)(FTCS), \mathcal{O} (\Delta t+h)(Lax-Friedrich), \mathcal{O} (\Delta t^2+h^2)(Lax-Wendroff)$，与数值解结果相符。
 
+将时间范围扩大，可以看到FTCS格式是不稳定的，Lax-Friedrich格式、Lax-Wendroff格式是稳定的。
+\subsection{问题2}
+随着空间步长的减小，Lax-Wendroff格式的数值解逐渐收敛到准确解。
 \section{Appendix}
 \subsection{Code Discription}
 本次作业使用matlab编写，问题1、2分别在main1.m、main2.m文件，运行即可得到结果，实现相关功能所需函数在ndsolve.m文件中

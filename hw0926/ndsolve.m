@@ -9,11 +9,11 @@ v(:,1)=sin(2*pi*x);
 
 for n=1:3/dt
     if n==1
-        %FTCS
+        %FTFS
         for j=2:J
-            v(j,n+1)=v(j,n)+r/2*(v(j+1,n)-v(j-1,n));
+            v(j,n+1)=v(j,n)+r/2*(v(j+1,n)-v(j,n));
         end
-        v(1,n+1)=v(1,n)+r/2*(v(2,n)-v(J,n));
+        v(1,n+1)=v(1,n)+r/2*(v(2,n)-v(1,n));
         v(J+1,n+1)=v(1,n+1);
     else
         %CTCS
