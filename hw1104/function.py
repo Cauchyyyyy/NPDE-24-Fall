@@ -3,7 +3,7 @@ import numpy as np
 
 u=lambda x,t: np.piecewise((x-t) % 1,[(x-t) % 1<0.4,(x-t) % 1>0.6,((x-t) % 1>=0.4)&((x-t) % 1<=0.6)],[0,0,1])
 
-x=np.linspace(0,1,100)
+x0=np.linspace(0,1,100)
 
 def pde_solve(r):
 # %%
@@ -49,7 +49,7 @@ def pde_solve(r):
         matplotlib.pyplot.figure(1)
         i=i+1
         matplotlib.pyplot.subplot(2,2,i)
-        matplotlib.pyplot.plot(x,u(x,t),x,v_lw[:,round(t/dt)],x,v[:,round(t/dt)],x,v_ftbs[:,round(t/dt)])
+        matplotlib.pyplot.plot(x0,u(x0,t),x,v_lw[:,round(t/dt)],x,v[:,round(t/dt)],x,v_ftbs[:,round(t/dt)])
         matplotlib.pyplot.legend(['exact','Lax-Wendroff','FTCS','FTBS'])
         matplotlib.pyplot.title(f'r={r},t={t}')
 
@@ -60,7 +60,7 @@ def pde_solve(r):
         matplotlib.pyplot.figure(2)
         i+=1
         matplotlib.pyplot.subplot(1,2,i)
-        matplotlib.pyplot.plot(x,u(x,t),x,v_lw[:,round(t/dt)],x,v_ftbs[:,round(t/dt)])
+        matplotlib.pyplot.plot(x0,u(x0,t),x,v_lw[:,round(t/dt)],x,v_ftbs[:,round(t/dt)])
         matplotlib.pyplot.legend(['exact','Lax-Wendroff','FTBS'])
         matplotlib.pyplot.title(f'r={r},t={t}')
         
