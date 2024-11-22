@@ -1,4 +1,3 @@
-%!TEX program = xelatex
 \documentclass{article}
 \usepackage[UTF8]{ctex}
 \usepackage[a4paper,left=1.25in,right=1.25in,top=1in,bottom=1in]{geometry}
@@ -45,6 +44,8 @@ sin 2\pi x sin 4\pi t$.
 $$v_{j}^{n+1} = v_{j}^{n} + \frac{\nu \Delta t}{\Delta x^2}(v_{j+1}^{n} - 2v_{j}^{n} + v_{j-1}^{n}) + \Delta t F_{j}^{n}, j=1,...,M-1$$
 $$v_M^{n+1} = b(t^{n+1})$$
 
+当$\frac{\nu\Delta t}{\Delta x^2}\leq \frac{1}{2}$时，内部格式是稳定的，题设条件$\nu\Delta t M^2\leq \frac{1}{2}$满足稳定性
+
 边界处理分别采用如下方法：
 \subsection{单侧差商离散}
 $x_0=0, \Delta x=\frac{1}{M}$，若已求得内部点$v_1^n,...,v_{M-1}^n$，则有
@@ -64,23 +65,64 @@ $x_0=-\frac{1}{2}\Delta x<0, \Delta x=\frac{1-\frac{1}{2}\Delta x}{M-1}$，若�
 \end{equation*}
 \section{Results}
 
-得到的数值结果以及对结果的说明。（不要贴那种带MATLAB窗口按钮的截图）
-
-
-\begin{table}[ht]
+得到的数值结果如下：
+\begin{figure}[H]
     \centering
-    \caption{误差和阶数表}\label{tab:demo0}
-    \begin{tabular}{c|ccccc}
-        \hline
-                           & 10       & 20        & 40        & 80         & 160        \\
-        \hline
-        $L^{\infty}$~error & 0.283284 & 0.0758226 & 0.0192964 & 0.00484029 & 0.00121093 \\
-        order              & -        & 1.90      & 1.97      & 2.00       & 2.00       \\
-        \hline
-    \end{tabular}
-\end{table}
-
-
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.1,M=10.png}
+        \caption{t=0.1,M=10}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.1,M=20.png}
+        \caption{t=0.1,M=20}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.1,M=40.png}
+        \caption{t=0.1,M=40}
+    \end{subfigure}
+    \caption{t=0.1}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.9,M=10.png}
+        \caption{t=0.9,M=10}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.9,M=20.png}
+        \caption{t=0.9,M=20}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.9,M=40.png}
+        \caption{t=0.9,M=40}
+    \end{subfigure}
+    \caption{t=0.9}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=2,M=10.png}
+        \caption{t=2.0,M=10}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=2,M=20.png}
+        \caption{t=2.0,M=20}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=2,M=40.png}
+        \caption{t=2.0,M=40}
+    \end{subfigure}
+    \caption{t=2.0}
+\end{figure}
 
 \section{Conclusion}
 
@@ -90,5 +132,5 @@ $x_0=-\frac{1}{2}\Delta x<0, \Delta x=\frac{1-\frac{1}{2}\Delta x}{M-1}$，若�
 \subsection{Code Discription}
 
 \subsection{Code}
-\lstinputlisting[language=Matlab]{}
+\lstinputlisting[language=python]{main.py}
 \end{document}

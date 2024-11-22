@@ -39,9 +39,9 @@ def pde_solve(r):
     v_lw[:,0]=u(x,0)
     for n in range(1,N):
         for j in range(1,J-1):
-            v_lw[j,n]=v_lw[j,n-1]+r/2*(v_lw[j+1,n-1]-v_lw[j-1,n-1])+r**2/2*(v_lw[j+1,n-1]-2*v_lw[j,n-1]+v_lw[j-1,n-1])
-        v_lw[0,n]=v_lw[0,n-1]+r/2*(v_lw[1,n-1]-v_lw[J-1,n-1])+r**2/2*(v_lw[1,n-1]-2*v_lw[0,n-1]+v_lw[J-1,n-1])
-        v_lw[J-1,n]=v_lw[J-1,n-1]+r/2*(v_lw[0,n-1]-v_lw[J-2,n-1])+r**2/2*(v_lw[0,n-1]-2*v_lw[J-1,n-1]+v_lw[J-2,n-1])
+            v_lw[j,n]=v_lw[j,n-1]-r/2*(v_lw[j+1,n-1]-v_lw[j-1,n-1])+r**2/2*(v_lw[j+1,n-1]-2*v_lw[j,n-1]+v_lw[j-1,n-1])
+        v_lw[0,n]=v_lw[0,n-1]-r/2*(v_lw[1,n-1]-v_lw[J-1,n-1])+r**2/2*(v_lw[1,n-1]-2*v_lw[0,n-1]+v_lw[J-1,n-1])
+        v_lw[J-1,n]=v_lw[J-1,n-1]-r/2*(v_lw[0,n-1]-v_lw[J-2,n-1])+r**2/2*(v_lw[0,n-1]-2*v_lw[J-1,n-1]+v_lw[J-2,n-1])
 
     # %%
     i=0
