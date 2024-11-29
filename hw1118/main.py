@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 F=lambda x,t:np.sin(2*np.pi*x)*np.sin(4*np.pi*t)
 a=lambda t:10*np.sin(t)
 b=lambda t:4*np.sin(6*t)
-f=lambda x:(1-x)*x
+f=lambda x:(1-x)**2*x**2
 
 M_all=[10,20,40,100]
 dt_all=[0.05,0.01,0.002,0.0005]
