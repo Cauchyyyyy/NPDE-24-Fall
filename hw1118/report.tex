@@ -38,7 +38,7 @@
 where $\nu = 0.1, f(x) = x(1 - x), a(t) = 10 sin t, b(t) = 4sin 6t$ and $ F(x, t) =
 sin 2\pi x sin 4\pi t$.
 
-网格剖分为$0<x_1<...<x_M=1$，分别取$M=10,20,40,\Delta t=0.05,0.01,0.002$，求$t=0.1,0.9,2.0$时的数值结果
+网格剖分为$0<x_1<...<x_M=1$，分别取$M=10,20,40,\Delta t=0.05,0.01,0.002$，求$t=0.1,0.9,2.0$时的数值结果，并与参考解$M=100,\Delta t=0.0005$进行比较。
 \section{Method}
 内部点使用FTCS格式，
 $$v_{j}^{n+1} = v_{j}^{n} + \frac{\nu \Delta t}{\Delta x^2}(v_{j+1}^{n} - 2v_{j}^{n} + v_{j-1}^{n}) + \Delta t F_{j}^{n}, j=1,...,M-1$$
@@ -83,6 +83,12 @@ $x_0=-\frac{1}{2}\Delta x<0, \Delta x=\frac{1-\frac{1}{2}\Delta x}{M-1}$，若�
         \includegraphics[width=\textwidth]{t=0.1,M=40.png}
         \caption{t=0.1,M=40}
     \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.1,M=100.png}
+        \caption{t=0.1,M=100(参考解)}
+        
+    \end{subfigure}
     \caption{t=0.1}
 \end{figure}
 \begin{figure}[H]
@@ -101,6 +107,12 @@ $x_0=-\frac{1}{2}\Delta x<0, \Delta x=\frac{1-\frac{1}{2}\Delta x}{M-1}$，若�
         \centering
         \includegraphics[width=\textwidth]{t=0.9,M=40.png}
         \caption{t=0.9,M=40}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=0.9,M=100.png}
+        \caption{t=0.9,M=100(参考解)}
+        
     \end{subfigure}
     \caption{t=0.9}
 \end{figure}
@@ -121,12 +133,18 @@ $x_0=-\frac{1}{2}\Delta x<0, \Delta x=\frac{1-\frac{1}{2}\Delta x}{M-1}$，若�
         \includegraphics[width=\textwidth]{t=2,M=40.png}
         \caption{t=2.0,M=40}
     \end{subfigure}
+    \begin{subfigure}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{t=2,M=100.png}
+        \caption{t=2.0,M=100(参考解)}
+        
+    \end{subfigure}
     \caption{t=2.0}
 \end{figure}
 
 \section{Conclusion}
 
-总结和思考。
+从数值结果来看，两种离散方法都是收敛的，且随着网格的加密，均能很好地逼近参考解。
 
 \section{Appendix}
 \subsection{Code Discription}

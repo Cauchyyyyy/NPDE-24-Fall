@@ -6,12 +6,12 @@ a=lambda t:10*np.sin(t)
 b=lambda t:4*np.sin(6*t)
 f=lambda x:(1-x)*x
 
-M_all=[10,20,40]
-dt_all=[0.05,0.01,0.002]
+M_all=[10,20,40,100]
+dt_all=[0.05,0.01,0.002,0.0005]
 T=2.5
 nu=0.1
 
-for i in range(3):
+for i in range(4):
     M=M_all[i]
     dt=dt_all[i]
     # first order
@@ -42,7 +42,7 @@ for i in range(3):
     for t in [0.1,0.9,2]:
         j=j+1
     
-        plt.plot(x1,v1[:,int(t/dt)],x2,v2[:,int(t/dt)])
+        plt.plot(x1,v1[:,int(t/dt)],x2[1:],v2[1:,int(t/dt)])
         plt.legend(['first order','second order'])
         plt.title(f't={t},M={M}')
         plt.grid(True)
