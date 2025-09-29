@@ -16,7 +16,6 @@
 \usepackage{bm}
 \usepackage{xcolor}
 
-
 \title{NPDE~第2次实验报告}
 \author{Author}
 \date{\today}
@@ -30,9 +29,9 @@
 求下述偏微分方程初值问题在时刻t=0.3的近似解：
 $$
 \begin{aligned}
-    &u_t=u_x,-\infty<x<\infty,t>0\\
-    &u(x,0)=sin(2\pi x)\\
-    &\text{周期为1}\\
+  & u_t=u_x,-\infty<x<\infty,t>0 \\
+  & u(x,0)=sin(2\pi x)           \\
+  & \text{周期为1}                  \\
 \end{aligned}
 $$
 
@@ -41,7 +40,6 @@ $$
 时间：$t_n=n\times \Delta t,n=0,1,...,N$,时间步长$\Delta t=1/N$
 
 空间：$x_j=j\times \Delta x,j=0,1,...,J$,空间步长$\Delta x=1/J$
-
 
 取$\Delta x =0.02$，在$\Delta t=0.01,0.03$时，分别用FTFS,FTCS方法求上述偏微分方程的近似解，并与准确解进行比较
 \section{Method}
@@ -57,37 +55,37 @@ $$v_j^{n+1}=v_j^n+\frac{\Delta t}{\Delta x}(v_{j+1}^n-v_{j}^n)$$
 
 本次作业结果如下，其中u代表准确解，v代表近似解。
 \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.47\textwidth}
     \centering
-    \begin{subfigure}[b]{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{0.01c.png}
-        \caption{$FTCS$}
-        
-    \end{subfigure}
-    \begin{subfigure}[b]{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{0.01f.png}
-        \caption{$FTFS$}
-        
-    \end{subfigure}
-    \caption{$\Delta t=0.01$}
+    \includegraphics[width=\textwidth]{0.01c.png}
+    \caption{$FTCS$}
+
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{0.01f.png}
+    \caption{$FTFS$}
+
+  \end{subfigure}
+  \caption{$\Delta t=0.01$}
 \end{figure}
 
 \begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.47\textwidth}
     \centering
-    \begin{subfigure}[b]{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{0.03c.png}
-        \caption{$FTCS$}
-        
-    \end{subfigure}
-    \begin{subfigure}[b]{0.47\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{0.03f.png}
-        \caption{$FTFS$}
-        
-    \end{subfigure}
-    \caption{$\Delta t=0.03$}
+    \includegraphics[width=\textwidth]{0.03c.png}
+    \caption{$FTCS$}
+
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{0.03f.png}
+    \caption{$FTFS$}
+
+  \end{subfigure}
+  \caption{$\Delta t=0.03$}
 \end{figure}
 \section{Conclusion}
 根据理论分析，FTCS和FTFS的误差分别为$O(\Delta t+\Delta x^2),O(\Delta t+\Delta x)$，求得的数值解与准确解有一定误差。
