@@ -8,7 +8,7 @@ def sol_CTCS(r: float, J: int, T: float):
     h = 1 / J
     dt = r * h
     x = np.arange(0, 1, h)  # which means [0,1) with step h
-    v = np.zeros((J, int(T / dt)))
+    v = np.zeros((J, int(T / dt) + 1))
     v[:, 0] = u(x, 0)
 
     # v^1 for FTCS
@@ -16,11 +16,11 @@ def sol_CTCS(r: float, J: int, T: float):
         v[j, 1] = v[j, 0] + r / 2 * (v[j + 1, 0] - v[j - 1, 0])
 
     # v^n, n>=2 for CTCS
-    for n in range(2, int(T / dt)):
+    for n in range(2, int(T / dt) + 1):
         for j in range(-1, J - 1):
             v[j, n] = v[j, n - 2] + r * (v[j + 1, n - 1] - v[j - 1, n - 1])
 
-    matplotlib.pyplot.plot(x, u(x, T), x, v[:, int(T / dt) - 1])
+    matplotlib.pyplot.plot(x, u(x, T), x, v[:, int(T / dt)])
     matplotlib.pyplot.legend(["exact", "approx"])
     matplotlib.pyplot.title(f"CTCS, r = {r}, t={T}, J={J}")
     matplotlib.pyplot.xlabel("x")
@@ -33,15 +33,15 @@ def sol_FTBS(r: float, J: int, T: float):
     h = 1 / J
     dt = r * h
     x = np.arange(0, 1, h)  # which means [0,1) with step h
-    v = np.zeros((J, int(T / dt)))
+    v = np.zeros((J, int(T / dt) + 1))
     v[:, 0] = u(x, 0)
 
     # FTBS
-    for n in range(1, int(T / dt)):
+    for n in range(1, int(T / dt) + 1):
         for j in range(-1, J - 1):
             v[j, n] = v[j, n - 1] + r * (v[j, n - 1] - v[j - 1, n - 1])
 
-    matplotlib.pyplot.plot(x, u(x, T), x, v[:, int(T / dt) - 1])
+    matplotlib.pyplot.plot(x, u(x, T), x, v[:, int(T / dt)])
     matplotlib.pyplot.legend(["exact", "approx"])
     matplotlib.pyplot.title(f"FTBS, r = {r}, t={T}, J={J}")
     matplotlib.pyplot.xlabel("x")

@@ -4,6 +4,7 @@
 *.png
 *.pdf
 *.zip
+*.log
 __pycache__
 .pytest_cache
 .vscode
